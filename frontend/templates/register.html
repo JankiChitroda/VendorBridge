@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>VendorBridge | Enterprise Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#c1ffc5",
+                        "inverse-surface": "#213145",
+                        "background": "#f8f9ff",
+                        "secondary-container": "#dae2fd",
+                        "surface": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#6bff8f",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#565e74",
+                        "surface-variant": "#d3e4fe",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#006229",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-background": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002109",
+                        "on-secondary-container": "#5c647a",
+                        "on-surface": "#0b1c30",
+                        "tertiary-container": "#007e37",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "custom": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-md": ["16px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-nav {
+            backdrop-filter: saturate(180%) blur(10px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #e5e7eb;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+<main class="flex-grow flex items-center justify-center p-md md:p-2xl bg-background">
+<div class="w-full max-w-4xl bg-surface-container-lowest rounded-custom border border-outline-variant shadow-sm overflow-hidden flex flex-col md:flex-row min-h-[700px]">
+    <div class="hidden md:flex md:w-1/3 bg-primary relative p-xl flex-col justify-between overflow-hidden">
+        <div class="relative z-10">
+            <h1 class="font-headline-md text-headline-md text-on-primary font-bold tracking-tight">VendorBridge</h1>
+            <p class="font-body-md text-body-md text-on-primary/80 mt-sm">Enterprise Procurement Redefined.</p>
+        </div>
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+        </div>
+        <div class="relative z-10">
+            <div class="bg-white/10 backdrop-blur-md p-md rounded-custom border border-white/20">
+                <p class="font-label-md text-label-md text-on-primary/90 uppercase tracking-widest mb-xs">Join the Network</p>
+                <p class="font-body-sm text-[13px] text-on-primary/70 leading-relaxed">Connect with over 10,000 verified vendors and streamline your RFQ cycle with AI-driven analytics.</p>
+            </div>
+        </div>
+        <img class="absolute bottom-[-10%] right-[-10%] w-full h-2/3 object-cover opacity-20 mix-blend-overlay grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtkA8Aaej7YzMYaTEaNePRx54L-_5-0YLN7t9IxiYqsoXJviFGwLxklosakLq532WDuJKxxdARvCH0VKPiufjFKHUxT6KAxAB3EEuD8SCZfjEL3CJHTnyCPiS8FNsXBmmt8mlk57n9Osq39zi9L1tDqN8MWwLpGU6OMVW49WFh68H2PeWX7J43T3y_WEGPn102cO7hyFOHCb8r6HL5PxxCjVP4F48AizgNHBtIjlkLhxLonNktnyhOqxbwVGWzIuOTV8w_gFrsQqk"/>
+    </div>
+    <div class="flex-grow p-xl md:p-2xl flex flex-col items-center custom-scrollbar overflow-y-auto">
+        <div class="w-full max-w-2xl">
+            <div class="flex flex-col items-center mb-xl">
+                <div class="relative group cursor-pointer">
+                    <div class="w-24 h-24 rounded-full bg-surface-container-high border-2 border-dashed border-outline-variant flex items-center justify-center transition-all group-hover:border-primary">
+                        <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-3xl">add_a_photo</span>
+                    </div>
+                    <div class="absolute -bottom-1 -right-1 bg-primary text-on-primary rounded-full p-1 border-4 border-surface-container-lowest">
+                        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'wght' 700">edit</span>
+                    </div>
+                </div>
+                <p class="font-label-md text-label-md text-on-surface-variant mt-sm">Upload Profile Picture</p>
+            </div>
+            <div class="mb-lg">
+                <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Register Account</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant">Complete the form below to join the VendorBridge ecosystem.</p>
+            </div>
+
+            <form id="registerForm" class="space-y-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface-variant block">First Name</label>
+                        <input id="firstName" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white" placeholder="e.g. Alexander" type="text" required/>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface-variant block">Last Name</label>
+                        <input id="lastName" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white" placeholder="e.g. Hamilton" type="text" required/>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface-variant block">Email Address</label>
+                        <input id="email" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white" placeholder="alex@company.com" type="email" required/>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface-variant block">Phone Number</label>
+                        <input id="phone" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white" placeholder="+91 98765 43210" type="tel"/>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface-variant block">Role</label>
+                        <select id="role" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white appearance-none">
+                            <option value="user">Procurement Manager</option>
+                            <option value="user">Vendor Associate</option>
+                            <option value="user">Supply Chain Analyst</option>
+                            <option value="admin">System Administrator</option>
+                        </select>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-label-md text-on-surface-variant block">Country</label>
+                        <select id="country" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white appearance-none">
+                            <option>India</option>
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                            <option>Germany</option>
+                            <option>Singapore</option>
+                            <option>Japan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="space-y-xs mt-lg">
+                    <label class="font-label-md text-label-md text-on-surface-variant block">Password</label>
+                    <input id="password" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white" placeholder="Enter your password" type="password" required/>
+                </div>
+                <div class="space-y-xs">
+                    <label class="font-label-md text-label-md text-on-surface-variant block">Additional Information</label>
+                    <textarea id="additionalInfo" class="w-full px-md py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white resize-none" placeholder="Tell us about your organization..." rows="4"></textarea>
+                </div>
+                <div class="flex items-start gap-sm py-sm">
+                    <input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant cursor-pointer" id="terms" type="checkbox" required/>
+                    <label class="font-body-md text-body-md text-on-surface-variant" for="terms">
+                        I agree to the <a class="text-primary hover:underline font-semibold" href="#">Terms of Service</a> and <a class="text-primary hover:underline font-semibold" href="#">Privacy Policy</a> of VendorBridge.
+                    </label>
+                </div>
+                <button id="regBtn" class="w-full py-md bg-primary-container text-on-primary rounded-custom font-title-md hover:bg-primary transition-all shadow-md active:scale-[0.99] flex items-center justify-center gap-sm" type="submit">
+                    <span>Register</span>
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </button>
+                <div class="text-center mt-lg">
+                    <p class="font-body-md text-on-surface-variant">Already have an account? <a class="text-primary font-bold hover:underline" href="login.html">Log in here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</main>
+<footer class="p-lg text-center">
+    <p class="font-label-md text-label-md text-outline">© 2024 VendorBridge Enterprise. All rights reserved. Secure RSA Encryption Active.</p>
+</footer>
+
+<script>
+    console.log("Script loaded successfully");
+    // Updated to match your active Swagger UI host IP address
+    const BACKEND_URL = "http://10.220.60.10:8000";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const registerForm = document.getElementById("registerForm");
+        const regBtn = document.getElementById("regBtn");
+        const roleSelect = document.getElementById("role");
+        const inputs = document.querySelectorAll('input, select, textarea');
+
+        // Fix the dropdown option values dynamically to match Pydantic expectations
+        if (roleSelect) {
+            roleSelect.innerHTML = `
+                <option value="procurement_officer">Procurement Manager</option>
+                <option value="vendor">Vendor Associate</option>
+                <option value="manager">Supply Chain Analyst</option>
+                <option value="admin">System Administrator</option>
+            `;
+        }
+
+        // Micro-interaction: Active label coloring
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+
+        if (registerForm) {
+            registerForm.addEventListener("submit", async (event) => {
+                console.log("Submit event intercepted");
+                event.preventDefault();
+
+                // 1. Start UI loading state
+                const originalContent = regBtn.innerHTML;
+                regBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...`;
+                regBtn.disabled = true;
+                regBtn.classList.add('opacity-80');
+
+                // 2. Gather values
+                const fName = document.getElementById("firstName").value.trim();
+                const lName = document.getElementById("lastName").value.trim();
+                
+                const payload = {
+                    name: `${fName} ${lName}`,
+                    email: document.getElementById("email").value.trim(),
+                    password: document.getElementById("password").value,
+                    role: document.getElementById("role").value // Sends 'procurement_officer', 'vendor', etc.
+                };
+
+                try {
+                    // 3. Make the API Call to your backend PC
+                    const response = await fetch(`${BACKEND_URL}/auth/signup`, {
+                        method: "POST",
+                        headers: { 
+                            "Content-Type": "application/json" 
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert("Registration successful! Redirecting to login page...");
+                        window.location.href = "login.html";
+                    } else {
+                        const errorMessage = typeof data.detail === 'object' ? JSON.stringify(data.detail) : data.detail;
+                        alert(`Registration Failed: ${errorMessage || "An error occurred during account setup."}`);
+                    }
+                } catch (error) {
+                    console.error("Network connection error:", error);
+                    alert("Could not reach backend server. Double check if it's running and CORS is fully open.");
+                } finally {
+                    // 4. Clean up loading states
+                    regBtn.innerHTML = originalContent;
+                    regBtn.disabled = false;
+                    regBtn.classList.remove('opacity-80');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

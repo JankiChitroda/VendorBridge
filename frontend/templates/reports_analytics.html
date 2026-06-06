@@ -1,0 +1,339 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Reports &amp; Analytics | VendorBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#c1ffc5",
+                        "inverse-surface": "#213145",
+                        "background": "#f8f9ff",
+                        "secondary-container": "#dae2fd",
+                        "surface": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#6bff8f",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#565e74",
+                        "surface-variant": "#d3e4fe",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#006229",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-background": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002109",
+                        "on-secondary-container": "#5c647a",
+                        "on-surface": "#0b1c30",
+                        "tertiary-container": "#007e37",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "12px",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-md": ["16px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .glass-nav { backdrop-filter: saturate(180%) blur(10px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .chart-bar:hover { filter: brightness(1.1); transition: filter 0.2s; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar (Persistent Desktop) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline w-[280px] hidden md:flex">
+<div class="mb-xl px-sm flex items-center gap-md">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary leading-none">VendorBridge</h2>
+<p class="text-label-md font-label-md text-on-surface-variant">Enterprise Procurement</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1"><a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-body-md text-body-md">Vendor Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-body-md text-body-md">RFQ Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">compare_arrows</span>
+<span class="font-body-md text-body-md">Quotation Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">rule</span>
+<span class="font-body-md text-body-md">Approval Workflow</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Purchase Orders</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-md text-body-md">Invoice Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Reports &amp; Analytics</span>
+</a></nav>
+<div class="mt-auto pt-xl border-t border-outline-variant space-y-1">
+<button class="w-full bg-primary text-on-primary font-title-md text-title-md py-md rounded-lg mb-md active:scale-[0.98] transition-transform">
+                Create New RFQ
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md text-body-md">Activity Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-[280px] min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-[280px] h-20 bg-surface/90 glass-nav z-30 px-margin-desktop flex items-center justify-between border-b border-outline-variant">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Reports &amp; Analytics</h1>
+<div class="flex items-center gap-lg">
+<div class="hidden lg:flex items-center bg-surface-container-low border border-outline-variant rounded-full px-md py-xs gap-sm">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Search reports..." type="text">
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="A professional headshot of a senior procurement executive in a sharp navy blue suit, standing against a blurred corporate office background with cool, modern lighting. The image maintains a high-key, professional aesthetic with crisp clarity and a neutral, trustworthy expression, perfectly matching a corporate software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-lv3i3gI0DXXWigPb1hL7BkZaRoY7Vy-Ak1Zp2a5jB0c45RR_6e6SpPalTSu48ES4psG3Kz64BJG8ehD2O7hfhoNZovuJLHF0aIV92iurrRZqhFgFDJXHizyIFAJEbRIPvJwxJ79PSqY-ULrvG5Ry4vUUDCzY9DRyKZQRtui3_gff-FC24LvBKZNuPpyQcyV3uwzkD47eOa9nVMv7rQXEB5DZs_eehGRZ2n27fZUkf-QccskJftFn2FmVQRb0TexlvrDucmdPpd0">
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="pt-24 p-margin-desktop space-y-gutter pb-margin-desktop">
+<!-- Controls Row -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-md mb-xl">
+<div class="flex items-center gap-sm">
+<div class="bg-white border border-outline-variant rounded-lg px-md py-sm flex items-center gap-sm cursor-pointer hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<span class="font-title-md text-title-md text-on-surface">May 2025</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="text-on-surface-variant text-body-md hidden lg:block">Procurement Insights - May 2025</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-sm bg-white border border-outline-variant px-md py-sm rounded-lg hover:bg-surface-container-low transition-colors font-title-md text-title-md">
+<span class="material-symbols-outlined">filter_list</span>
+                        Filters
+                    </button>
+<button class="flex items-center gap-sm bg-primary text-on-primary px-md py-sm rounded-lg hover:opacity-90 transition-all shadow-sm font-title-md text-title-md">Export</button>
+</div>
+</div>
+<!-- KPI Cards - Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="bg-white p-lg rounded border border-outline-variant shadow-sm flex flex-col items-center justify-center text-center"><h3 class="font-headline-lg text-headline-lg text-primary">₹12,42,500</h3><p class="text-on-surface-variant font-label-md">total spend</p><p class="text-tertiary font-label-md mt-xs">+8.4% vs last month</p></div>
+<div class="bg-white p-lg rounded border border-outline-variant shadow-sm flex flex-col items-center justify-center text-center"><h3 class="font-headline-lg text-headline-lg text-tertiary">32</h3><p class="text-on-surface-variant font-label-md">Active vendors</p><p class="text-tertiary font-label-md mt-xs">+4 new this month</p></div>
+<div class="bg-white p-lg rounded border border-outline-variant shadow-sm flex flex-col items-center justify-center text-center"><h3 class="font-headline-lg text-headline-lg text-secondary">94.2%</h3><p class="text-on-surface-variant font-label-md">PO Fulfillment</p><p class="text-tertiary font-label-md mt-xs">+1.2% improvement</p></div>
+<div class="bg-white p-lg rounded border border-outline-variant shadow-sm flex flex-col items-center justify-center text-center"><h3 class="font-headline-lg text-headline-lg text-error">3</h3><p class="text-error font-label-md">overdue invoices</p><p class="text-error font-label-md mt-xs">-2 vs last week</p></div>
+</div>
+<!-- Visualization Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter"><!-- Spend by Category -->
+<div class="bg-white p-lg rounded border border-outline-variant shadow-sm">
+<h4 class="font-title-md text-title-md uppercase mb-lg">Spend by Category</h4>
+<div class="space-y-md"><div class="space-y-xs"><div class="flex justify-between text-body-md"><span class="">IT Hardware</span><span class="font-bold">₹4,82,500</span></div><div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-primary w-[65%]"></div></div></div><div class="space-y-xs"><div class="flex justify-between text-body-md"><span class="">Furniture</span><span class="font-bold">₹3,24,100</span></div><div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-tertiary w-[45%]"></div></div></div><div class="space-y-xs"><div class="flex justify-between text-body-md"><span class="">Stationery</span><span class="font-bold">₹2,10,400</span></div><div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-secondary-container w-[30%]"></div></div></div><div class="space-y-xs"><div class="flex justify-between text-body-md"><span class="">Logistics</span><span class="font-bold">₹2,25,500</span></div><div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-error w-[35%]"></div></div></div></div>
+</div>
+<!-- Top Vendors by Spend -->
+<div class="lg:col-span-2 bg-white p-lg rounded border border-outline-variant shadow-sm">
+<h4 class="font-title-md text-title-md uppercase mb-lg">Top Vendors by Spend</h4>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<th class="px-md py-sm">Vendor</th>
+<th class="px-md py-sm">Spend (₹)</th>
+<th class="px-md py-sm">POs</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant"><tr><td class="px-md py-md text-body-md">TechCore Ltd</td><td class="px-md py-md text-body-md">4,20,000</td><td class="px-md py-md text-body-md">6</td></tr><tr><td class="px-md py-md text-body-md">Infra Supplies</td><td class="px-md py-md text-body-md">3,10,000</td><td class="px-md py-md text-body-md">4</td></tr><tr><td class="px-md py-md text-body-md">FastLog Solutions</td><td class="px-md py-md text-body-md">1,90,000</td><td class="px-md py-md text-body-md">3</td></tr></tbody>
+</table>
+</div></div>
+<!-- Top Vendors Performance Table -->
+<div class="bg-white p-lg rounded border border-outline-variant shadow-sm">
+<h4 class="font-title-md text-title-md uppercase mb-lg">Monthly Trend</h4>
+<div class="flex items-end gap-md h-48 px-md">
+<div class="flex-1 bg-surface-container-high rounded-t h-[30%]"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[45%]"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[40%]"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[60%]"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[55%]"></div>
+<div class="flex-1 bg-primary rounded-t h-[85%]"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant flex md:hidden items-center justify-around py-sm z-50 glass-nav"><a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label-md">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-label-md">Vendors</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="text-[10px] font-label-md">Reports</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-label-md">Settings</span>
+</a></nav>
+
+
+
+
+<script>
+        console.log("Script loaded successfully");
+     const BACKEND_URL = "http://10.220.60.10:8000";
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const token = localStorage.getItem("token");
+
+            // =========================================================
+            // 1. Session Protection Gatekeeper
+            // =========================================================
+            if (!token) {
+                alert("Access Denied: Please log in first.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/auth/me`, {
+                    method: "GET",
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+
+                if (!response.ok) {
+                    console.warn("Invalid session context detected.");
+                    localStorage.removeItem("token");
+                    window.location.href = "login.html";
+                    return;
+                }
+            } catch (error) {
+                console.error("Network Exception:", error);
+                // Non-blocking fallback to let you work on UI features offline
+            }
+
+            // =========================================================
+            // 2. Your Existing UI Micro-Interactions (100% Preserved)
+            // =========================================================
+            document.querySelectorAll('.chart-bar').forEach(bar => {
+                bar.addEventListener('mouseenter', () => {
+                    bar.style.filter = 'brightness(1.2)';
+                });
+                bar.addEventListener('mouseleave', () => {
+                    bar.style.filter = 'brightness(1)';
+                });
+            });
+
+            // Ready to connect to your backend analytics/metrics endpoint once created:
+            /*
+            try {
+                const metricsResponse = await fetch(`${BACKEND_URL}/analytics/summary`, {
+                    method: "GET",
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+                const metricsData = await metricsResponse.json();
+                // Logic to update bento grid card strings and chart-bar heights dynamically...
+            } catch (err) {
+                console.error("Failed fetching procurement insights metadata:", err);
+            }
+            */
+        });
+    </script>
+
+
+
+
+
+</body></html>

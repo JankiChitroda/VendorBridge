@@ -1,0 +1,309 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Purchase Order & Invoice Detail | VendorBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        .document-surface {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(0 0 0 / 0.05);
+        }
+        @media print {
+            .no-print { display: none !important; }
+            main { margin-left: 0 !important; }
+            .document-surface { box-shadow: none !important; border: 1px solid #e5e7eb !important; }
+            .bg-surface-container-low { background-color: white !important; }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-tertiary-fixed": "#002109",
+                        "surface-container-high": "#dce9ff",
+                        "primary": "#004ac6",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary-container": "#c1ffc5",
+                        "tertiary-fixed": "#6bff8f",
+                        "tertiary": "#006229",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-surface": "#213145",
+                        "primary-container": "#2563eb",
+                        "on-surface": "#0b1c30",
+                        "on-primary-fixed": "#00174b",
+                        "outline": "#737686",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-primary-container": "#eeefff",
+                        "background": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#565e74",
+                        "on-surface-variant": "#434655",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "inverse-primary": "#b4c5ff",
+                        "surface": "#f8f9ff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#007e37",
+                        "secondary-container": "#dae2fd",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5c647a",
+                        "on-background": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "xs": "4px",
+                        "margin-desktop": "32px",
+                        "base": "4px",
+                        "2xl": "48px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-md": ["16px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-container-low text-on-surface font-body-md overflow-x-hidden antialiased">
+<!-- Sidebar Navigation -->
+<aside class="no-print fixed left-0 top-0 h-full flex flex-col p-md z-40 bg-white border-r border-outline-variant w-[280px] hidden md:flex">
+<div class="p-lg mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[24px]" data-icon="storefront">storefront</span>
+</div>
+<div>
+<h1 class="text-title-md font-bold text-on-surface leading-tight">VendorBridge</h1>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Enterprise Suite</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-md space-y-1">
+<!-- LINK INTERACTION PATHS CORRECTION -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="main_landing_page.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-body-md font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="vendors_page.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span class="font-body-md font-medium">Vendor Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="create_RFQ.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="request_quote">request_quote</span>
+<span class="font-body-md font-medium">RFQ Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="RFQ_quotation_submit.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="compare_arrows">compare_arrows</span>
+<span class="font-body-md font-medium">Quotation Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="approval_workflow.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="rule">rule</span>
+<span class="font-body-md font-medium"></span>
+</a>
+
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg shadow-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="font-body-md font-semibold">Approval Workflow</span>
+</a>
+
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="approval_workflow.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="rule">rule</span>
+<span class="font-body-md font-medium">Purchase Orders</span>
+</a>
+
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="description">description</span>
+<span class="font-body-md font-medium">Invoice Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span class="font-body-md font-medium">Reports &amp; Analytics</span>
+</a>
+</nav>
+<div class="mt-auto p-md space-y-1">
+<div class="h-px bg-outline-variant mb-md"></div>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="activity_logs.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+<span class="font-body-md font-medium">Activity Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#" id="logoutActionBtn">
+<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+<span class="font-body-md font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-[280px] min-h-screen">
+<!-- Top Navigation -->
+<header class="no-print fixed top-0 right-0 left-0 md:left-[280px] z-50 h-20 glass-panel flex justify-between items-center px-margin-desktop border-b border-outline-variant"><div class="flex flex-col"><div class="flex items-center gap-2"><span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-widest">Invoice</span><h2 class="text-headline-md font-bold text-on-surface leading-tight">PO-2026-0068</h2></div><div class="flex items-center gap-sm"><span class="text-body-md text-on-surface-variant">Purchase Order &amp; Invoice • PO-2026-auto-generated</span></div></div><div class="flex items-center gap-md"><button class="px-md py-2 border border-outline-variant rounded-lg text-label-md font-semibold text-on-surface hover:bg-surface-container-high transition-all flex flex-col items-center justify-center min-w-[100px]"><span class="material-symbols-outlined text-[20px] mb-0.5" data-icon="download">download</span>Download PDF</button><button class="px-md py-2 border border-outline-variant rounded-lg text-label-md font-semibold text-on-surface hover:bg-surface-container-high transition-all flex flex-col items-center justify-center min-w-[80px]"><span class="material-symbols-outlined text-[20px] mb-0.5" data-icon="print">print</span>Print</button><button class="px-md py-2 border border-outline-variant rounded-lg text-label-md font-semibold text-on-surface hover:bg-surface-container-high transition-all flex flex-col items-center justify-center min-w-[80px]"><span class="material-symbols-outlined text-[20px] mb-0.5" data-icon="mail">mail</span>Email invoice</button></div></header>
+<!-- Content Canvas -->
+<section class="pt-28 pb-2xl px-margin-mobile md:px-margin-desktop max-w-[1050px] mx-auto">
+<!-- Professional Document Style Paper -->
+<div class="document-surface bg-white rounded-xl overflow-hidden border border-outline-variant/50">
+<!-- Billing and Info Sections Container -->
+<div class="p-xl md:p-2xl border-b border-outline-variant"><div class="grid grid-cols-2 gap-x-2xl gap-y-xl"><div class="space-y-md"><div class="flex items-center gap-2 border-b border-outline-variant/30 pb-2"><span class="material-symbols-outlined text-primary text-[18px]">account_balance</span><p class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Bill to</p></div><div class="text-body-md text-on-surface leading-relaxed space-y-1"><p class="font-bold text-[16px]">Your Organization Name</p><p class="text-on-surface-variant">123 business park, ahmedabad</p><p class="font-mono text-sm bg-surface-container px-2 py-0.5 rounded inline-block">GSTIN: 25383438AFB</p></div></div><div class="space-y-md"><div class="flex items-center gap-2 border-b border-outline-variant/30 pb-2"><span class="material-symbols-outlined text-primary text-[18px]">store</span><p class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Vendor</p></div><div class="text-body-md text-on-surface leading-relaxed space-y-1"><p class="font-bold text-[16px]">Infra supplies pvt ltd</p><p class="text-on-surface-variant">456, industrial estate, surat</p><p class="font-mono text-sm bg-surface-container px-2 py-0.5 rounded inline-block">GSTIN: 343434DB4523</p></div></div><div class="col-span-2 grid grid-cols-4 gap-md bg-surface-container-low/50 p-md rounded-lg border border-outline-variant/30"><div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase">PO Number</span><span class="text-body-md font-semibold">PO-2026-0068</span></div><div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase">Invoice Date</span><span class="text-body-md font-semibold">22 May 2026</span></div><div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase">PO Date</span><span class="text-body-md font-semibold">21 May 2026</span></div><div class="flex flex-col"><span class="text-[10px] font-bold text-on-surface-variant uppercase">Due Date</span><span class="text-body-md font-semibold text-error">21 June 2026</span></div></div></div></div>
+<!-- Line Items Table -->
+<div class="px-xl md:px-2xl py-md"><div class="overflow-x-auto"><table class="w-full text-left border-collapse"><thead><tr class="bg-on-surface text-on-primary"><th class="py-md px-md text-label-md font-bold uppercase tracking-wider">Item Description</th><th class="py-md px-md text-label-md font-bold uppercase tracking-wider text-center w-24">Qty</th><th class="py-md px-md text-label-md font-bold uppercase tracking-wider text-right w-32">Unit Price</th><th class="py-md px-md text-label-md font-bold uppercase tracking-wider text-right w-40">Total</th></tr></thead><tbody class="divide-y divide-outline-variant/30"><tr class="hover:bg-surface-container-low/50 transition-colors"><td class="py-lg px-md text-body-md font-medium">Ergonomic chair</td><td class="py-lg px-md text-center text-body-md">25</td><td class="py-lg px-md text-right text-body-md">3,500.00</td><td class="py-lg px-md text-right text-body-md font-semibold">87,500.00</td></tr><tr class="bg-surface-container-low/20 hover:bg-surface-container-low/50 transition-colors"><td class="py-lg px-md text-body-md font-medium">Tech Core LTD</td><td class="py-lg px-md text-center text-body-md">10</td><td class="py-lg px-md text-right text-body-md">8,200.00</td><td class="py-lg px-md text-right text-body-md font-semibold">82,000.00</td></tr></tbody><tfoot><tr><td class="py-sm px-md text-right font-medium text-on-surface-variant" colspan="3">Subtotal</td><td class="py-sm px-md text-right text-body-md">1,69,500.00</td></tr><tr><td class="py-sm px-md text-right font-medium text-on-surface-variant" colspan="3">CGST (9%)</td><td class="py-sm px-md text-right text-body-md">15,255.00</td></tr><tr><td class="py-sm px-md text-right font-medium text-on-surface-variant" colspan="3">SGST (9%)</td><td class="py-sm px-md text-right text-body-md">15,255.00</td></tr><tr class="bg-primary text-on-primary"><td class="py-lg px-md text-right font-bold uppercase tracking-widest" colspan="3">Grand Total</td><td class="py-lg px-md text-right text-[20px] font-bold">₹ 2,00,010.00</td></tr></tfoot></table></div></div>
+<!-- Footer / Status -->
+<div class="px-xl md:px-2xl py-xl flex items-center gap-md"><div class="flex items-center justify-between w-full"><div class="flex items-center gap-md"><span class="text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Payment Status:</span><span class="px-4 py-1.5 bg-[#FFF59D] text-[#5D4037] rounded-full font-bold text-label-md shadow-sm flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">pending_actions</span>Pending Payment</span></div><button class="flex items-center gap-2 px-xl py-2 bg-primary text-on-primary rounded-lg font-bold text-label-md hover:bg-primary/90 transition-all shadow-sm"><span class="material-symbols-outlined text-[18px]">check_circle</span>Mark as Paid</button></div></div>
+</div>
+<!-- Page Footer Actions (Security / Compliance) -->
+<div class="mt-xl flex flex-col md:flex-row items-center justify-center gap-lg text-on-surface-variant no-print">
+<div class="flex items-center gap-sm bg-white px-md py-2 rounded-full border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="lock">lock</span>
+<p class="text-[11px] font-bold font-mono uppercase tracking-tight text-on-surface-variant">TX: 0xF4289...8A12</p>
+</div>
+<div class="flex items-center gap-sm bg-white px-md py-2 rounded-full border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="verified_user">verified_user</span>
+<p class="text-[11px] font-bold uppercase tracking-tight text-on-surface-variant">System Audited</p>
+</div>
+<div class="flex items-center gap-sm bg-white px-md py-2 rounded-full border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="cloud_done">cloud_done</span>
+<p class="text-[11px] font-bold uppercase tracking-tight text-on-surface-variant">Cloud Archived</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Navigation Bar -->
+<nav class="no-print fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-outline-variant flex items-center justify-around md:hidden z-50 shadow-2xl">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60" href="main_landing_page.html">
+<span class="material-symbols-outlined text-[24px]" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60" href="vendors_page.html">
+<span class="material-symbols-outlined text-[24px]" data-icon="storefront">storefront</span>
+<span class="text-[10px] font-bold uppercase">Vendors</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[24px] font-bold" data-icon="receipt_long">receipt_long</span>
+<span class="text-[10px] font-bold uppercase">POs</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60" href="login.html">
+<span class="material-symbols-outlined text-[24px]" data-icon="logout">logout</span>
+<span class="text-[10px] font-bold uppercase">Logout</span>
+</a>
+</nav>
+<script>
+        const BACKEND_URL = "http://10.220.60.10:8000";
+
+        // Micro-interaction for buttons
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Simple mock behavior for print
+        const printBtn = Array.from(document.querySelectorAll('button')).find(btn => btn.innerText.trim().includes('Print'));
+        if (printBtn) {
+            printBtn.addEventListener('click', () => {
+                window.print();
+            });
+        }
+
+        // =========================================================
+        // Session Verification Handler
+        // =========================================================
+        document.addEventListener("DOMContentLoaded", async () => {
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+                alert("Access Denied: Please log in first.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/auth/me`, {
+                    method: "GET",
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+
+                if (!response.ok) {
+                    console.warn("Invalid session token context.");
+                    localStorage.removeItem("token");
+                    window.location.href = "login.html";
+                    return;
+                }
+            } catch (error) {
+                console.error("Network communication exception:", error);
+            }
+        });
+
+        // Bind interactive elements for standard layout functions
+        const logoutBtn = document.getElementById("logoutActionBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("token");
+                localStorage.removeItem("role");
+                window.location.href = "login.html";
+            });
+        }
+    </script>
+</body></html>

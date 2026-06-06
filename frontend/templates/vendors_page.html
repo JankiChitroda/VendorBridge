@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Management | VendorBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#c1ffc5",
+                    "inverse-surface": "#213145",
+                    "background": "#f8f9ff",
+                    "secondary-container": "#dae2fd",
+                    "surface": "#f8f9ff",
+                    "primary": "#004ac6",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#dae2fd",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#00174b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed": "#6bff8f",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-bright": "#f8f9ff",
+                    "secondary": "#565e74",
+                    "surface-variant": "#d3e4fe",
+                    "primary-fixed": "#dbe1ff",
+                    "on-surface-variant": "#434655",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary-container": "#eeefff",
+                    "tertiary": "#006229",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-secondary-fixed": "#131b2e",
+                    "outline": "#737686",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#0053db",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#2563eb",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c3c6d7",
+                    "on-background": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container": "#e5eeff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#002109",
+                    "on-secondary-container": "#5c647a",
+                    "on-surface": "#0b1c30",
+                    "tertiary-container": "#007e37",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#3f465c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "12px",
+                    "lg": "12px",
+                    "xl": "16px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "sm": "8px",
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "2xl": "48px",
+                    "xl": "32px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-md": ["16px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: saturate(180%) blur(10px);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .row-hover:hover {
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 bg-surface border-r border-outline-variant w-[280px]">
+<div class="flex items-center gap-sm mb-2xl px-sm">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">VendorBridge</h1>
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Enterprise Procurement</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto scrollbar-hide">
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg active:scale-[0.98]" href="main_landing_page.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 bg-secondary-container text-on-secondary-container rounded-lg active:scale-[0.98] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-body-md text-body-md font-semibold">Vendor Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg active:scale-[0.98]" href="create_RFQ.html">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-body-md text-body-md">RFQ Management</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg active:scale-[0.98]" href="RFQ_quotation_submit.html">
+<span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
+<span class="font-body-md text-body-md">Quotation Management</span>
+</a><a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg active:scale-[0.98]" href="approval_workflow.html"><span class="material-symbols-outlined" data-icon="rule">rule</span><span class="font-body-md text-body-md">Approval Workflow</span></a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg active:scale-[0.98]" href="po_invoice_detail.html">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-body-md text-body-md">Purchase Orders</span>
+</a><a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg active:scale-[0.98]" href="invoice_m.html"><span class="material-symbols-outlined" data-icon="receipt">receipt</span><span class="font-body-md text-body-md">Invoice Management</span></a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg active:scale-[0.98]" href="reports_analytics.html">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Reports & Analytics</span>
+</a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg" href="activity_logs.html">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-md text-body-md">Activity Logs</span>
+</a>
+<button class="w-full flex items-center gap-md px-md py-3 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</button>
+</div>
+</aside>
+<main class="ml-[280px] h-screen flex flex-col relative overflow-hidden">
+<header class="h-20 glass-nav bg-surface/90 border-b border-outline-variant flex items-center justify-between px-margin-desktop sticky top-0 w-full z-50">
+<div class="flex items-center gap-xl">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Vendors</h2>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors" href="main_landing_page.html">Dashboard</a>
+<a class="font-body-lg text-body-lg text-primary border-b-2 border-primary pb-1" href="#">Vendors</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors" href="reports_analytics.html">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-md cursor-pointer group">
+<img alt="User profile" class="w-10 h-10 rounded-full border border-outline-variant group-hover:border-primary transition-colors" data-alt="A professional headshot of a corporate procurement officer, wearing a navy blue suit and a clean white shirt, against a soft-focus office background with warm lighting and a modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiaHrcr2CiUB-cNsVka_vWrLs7udbi1e_KVHsWFRjJR9s60BQ3VuXnxrtSlK2bH6bPnU2RwUiYkkc7LhdJOjgU1lCfofm_Rc48N9yU8q8XXdK4bo89VqBiNgyP_TNyzvPskB6rzeO54HhKTMkMj5tSmDIRuaNmw4wbig_AgCSzAaoIPCetJpp7cKj9TXa9rJK0lfufb3MD_n6c19dUZJCrQq-1GWFZmoV05WSQ1zrQrJ636KkkDHFCm51W-_w7x8OA-BZTuevVgwU"/>
+<div class="hidden lg:block text-right">
+<p id="user-display-name" class="text-body-md font-semibold text-on-surface leading-tight">Rajesh Kumar</p>
+<p class="text-label-md text-on-surface-variant leading-tight">Global Sourcing Lead</p>
+</div>
+</div>
+</div>
+</header>
+<section class="flex-1 overflow-y-auto p-margin-desktop bg-background">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-gutter mb-xl">
+<div class="flex-1 flex items-center gap-md max-w-2xl">
+<div class="relative flex-1 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input
+    id="searchInput"
+    class="w-full pl-12 pr-4 py-3 bg-surface border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-md"
+    placeholder="Search vendors..."
+    type="text"
+/>
+</div>
+<button
+    id="addVendorBtn"
+    class="flex items-center gap-sm px-6 py-3 bg-primary text-on-primary rounded-lg font-title-md hover:bg-primary-container transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Add Vendor
+                    </button>
+</div>
+<div class="flex items-center gap-sm overflow-x-auto pb-1 scrollbar-hide">
+<span class="text-label-md text-on-surface-variant font-semibold uppercase mr-2">Filter By:</span>
+<button class="px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-label-md border border-outline-variant whitespace-nowrap">All Vendors</button>
+<button class="px-4 py-1.5 bg-surface text-on-surface-variant rounded-full text-label-md border border-outline-variant hover:bg-surface-container-low transition-colors whitespace-nowrap">Active Only</button>
+<button class="px-4 py-1.5 bg-surface text-on-surface-variant rounded-full text-label-md border border-outline-variant hover:bg-surface-container-low transition-colors whitespace-nowrap">Preferred</button>
+<button class="px-4 py-1.5 bg-surface text-on-surface-variant rounded-full text-label-md border border-outline-variant hover:bg-surface-container-low transition-colors whitespace-nowrap">High Rating</button>
+</div>
+</div>
+<div class="bg-surface rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-lg py-md text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Vendor Details</th>
+<th class="px-lg py-md text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Category</th>
+<th class="px-lg py-md text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-lg py-md text-label-md font-bold text-on-surface-variant uppercase tracking-wider">Performance</th>
+<th class="px-lg py-md text-label-md font-bold text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody id="vendorTableBody" class="divide-y divide-outline-variant">
+</tbody>
+</table>
+</div>
+<div class="px-lg py-md bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<p class="text-label-md text-on-surface-variant">Showing <span id="vendorsCountLabel" class="font-semibold text-on-surface">0</span> vendors</p>
+<div class="flex items-center gap-sm">
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-lg font-semibold">1</button>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-xl">
+<div class="p-lg bg-surface-container border border-outline-variant rounded-xl flex items-center gap-lg">
+<div class="w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<p class="text-headline-md font-bold text-on-surface">82%</p>
+<p class="text-body-md text-on-surface-variant">Compliant Vendors</p>
+</div>
+</div>
+<div class="p-lg bg-surface-container border border-outline-variant rounded-xl flex items-center gap-lg">
+<div class="w-14 h-14 bg-tertiary/10 text-tertiary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]" data-icon="monitoring">monitoring</span>
+</div>
+<div>
+<p class="text-headline-md font-bold text-on-surface">₹95.4 Lakh</p>
+<p class="text-body-md text-on-surface-variant">Avg. Order Value</p>
+</div>
+</div>
+<div class="p-lg bg-surface-container border border-outline-variant rounded-xl flex items-center gap-lg">
+<div class="w-14 h-14 bg-secondary/10 text-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]" data-icon="pending_actions">pending_actions</span>
+</div>
+<div>
+<p class="text-headline-md font-bold text-on-surface">14</p>
+<p class="text-body-md text-on-surface-variant">Pending RFQs</p>
+</div>
+</div>
+</div>
+</section>
+<button class="fixed bottom-margin-desktop right-margin-desktop w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-90 transition-all z-50 md:hidden">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</main>
+
+<script>
+const BACKEND_URL = "http://10.220.60.10:8000";
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/auth/me`, {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        if (response.ok) {
+            const userData = await response.json();
+            const userDisplay = document.getElementById("user-display-name");
+            if (userDisplay && userData.username) {
+                userDisplay.innerText = userData.username;
+            }
+        } else {
+            localStorage.removeItem("token");
+            window.location.href = "login.html";
+            return;
+        }
+    } catch(e) {
+        console.error("Auth validation failed, testing in local state mode.", e);
+    }
+
+    await loadVendors();
+
+    document.getElementById("searchInput").addEventListener("keyup", searchVendor);
+    document.getElementById("addVendorBtn").addEventListener("click", addVendor);
+});
+
+async function loadVendors() {
+    const token = localStorage.getItem("token");
+    try {
+        const response = await fetch(`${BACKEND_URL}/vendors/`, {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        const vendors = await response.json();
+        renderVendors(vendors);
+    } catch (error) {
+        console.error(error);
+        alert("Could not load vendors from backend machine.");
+    }
+}
+
+function renderVendors(vendors) {
+    const tableBody = document.getElementById("vendorTableBody");
+    const countLabel = document.getElementById("vendorsCountLabel");
+    tableBody.innerHTML = "";
+    
+    if(countLabel) countLabel.innerText = vendors.length;
+
+    vendors.forEach(vendor => {
+        let statusBadgeClass = "bg-on-tertiary-container text-tertiary";
+        if(vendor.status && vendor.status.toLowerCase().includes("hold")) statusBadgeClass = "bg-error-container text-error";
+        if(vendor.status && vendor.status.toLowerCase().includes("review")) statusBadgeClass = "bg-secondary-container text-on-secondary-container";
+
+        tableBody.innerHTML += `
+        <tr class="row-hover transition-colors">
+            <td class="px-lg py-md">
+                <div class="flex items-center gap-md">
+                    <div class="w-10 h-10 bg-surface-container-highest rounded-lg flex items-center justify-center text-primary font-bold">
+                        ${vendor.vendor_name ? vendor.vendor_name.substring(0,2).toUpperCase() : 'VN'}
+                    </div>
+                    <div>
+                        <p class="text-body-md font-semibold text-on-surface">${vendor.vendor_name}</p>
+                        <p class="text-label-md text-on-surface-variant">ID: VEND-2026-${vendor.id}</p>
+                    </div>
+                </div>
+            </td>
+            <td class="px-lg py-md">
+                <span class="text-body-md text-on-surface">${vendor.category || 'N/A'}</span>
+            </td>
+            <td class="px-lg py-md">
+                <span class="inline-flex items-center px-3 py-1 rounded-full font-label-md ${statusBadgeClass}">
+                    ${vendor.status || 'Active'}
+                </span>
+            </td>
+            <td class="px-lg py-md">
+                <div class="flex items-center gap-base">
+                    <span class="material-symbols-outlined text-on-surface-variant text-[18px]">badge</span>
+                    <span class="text-body-md text-on-surface-variant font-mono text-xs">${vendor.gst_number || 'N/A'}</span>
+                </div>
+            </td>
+            <td class="px-lg py-md text-right">
+                <div class="flex items-center justify-end gap-sm">
+                    <button onclick="editVendor(${vendor.id}, '${vendor.vendor_name}', '${vendor.category}', '${vendor.gst_number}', '${vendor.contact_person}', '${vendor.email}', '${vendor.phone}', '${vendor.address}', '${vendor.status}')" class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="Edit Vendor">
+                        <span class="material-symbols-outlined">edit</span>
+                    </button>
+                    <button onclick="deleteVendor(${vendor.id})" class="p-2 text-error hover:bg-error-container/20 rounded-lg transition-all" title="Delete Vendor">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        `;
+    });
+}
+
+// 📝 MATCHES VendorCreate SCHEMA (Requires all properties)
+async function addVendor() {
+    const token = localStorage.getItem("token");
+    
+    const vendor_name = prompt("Enter Vendor Name:");
+    if (!vendor_name) return;
+    const category = prompt("Enter Category (e.g. IT Services, Furniture):");
+    if (!category) return;
+    const gst_number = prompt("Enter GSTIN Code:");
+    if (!gst_number) return;
+    const contact_person = prompt("Enter Contact Person Name:");
+    if (!contact_person) return;
+    const email = prompt("Enter Corporate Email Address:");
+    if (!email) return;
+    const phone = prompt("Enter Mobile/Phone Contact Number:");
+    if (!phone) return;
+    const address = prompt("Enter Physical Office Address:");
+    if (!address) return;
+
+    const payload = {
+        vendor_name,
+        category,
+        gst_number,
+        contact_person,
+        email,
+        phone,
+        address,
+        status:status.toLowerCase()
+    };
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/vendors/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            alert("Vendor successfully onboarded to system ERP!");
+            loadVendors();
+        } else {
+            const errData = await response.json();
+            alert(`Failed to add vendor: ${JSON.stringify(errData.detail)}`);
+        }
+    } catch(e) {
+        console.error(e);
+    }
+}
+
+// 🔐 MATCHES VendorUpdate SCHEMA (Requires all properties including status)
+async function editVendor(id, currentName, currentCategory, currentGst, currentContact, currentEmail, currentPhone, currentAddress, currentStatus) {
+    const token = localStorage.getItem("token");
+    
+    const vendor_name = prompt("Modify Vendor Name:", currentName) || currentName;
+    const category = prompt("Modify Category:", currentCategory) || currentCategory;
+    const gst_number = prompt("Modify GSTIN Code:", currentGst) || currentGst;
+    const contact_person = prompt("Modify Contact Person Name:", currentContact) || currentContact;
+    const email = prompt("Modify Corporate Email:", currentEmail) || currentEmail;
+    const phone = prompt("Modify Contact Phone:", currentPhone) || currentPhone;
+    const address = prompt("Modify Physical Address:", currentAddress) || currentAddress;
+    const status = prompt("Modify Vendor Status (Active, Preferred, Under Review, On Hold):", currentStatus) || currentStatus;
+
+    const payload = {
+        vendor_name,
+        category,
+        gst_number,
+        contact_person,
+        email,
+        phone,
+        address,
+        status
+    };
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/vendors/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            alert("Vendor profile parameters updated successfully.");
+            loadVendors();
+        } else {
+            const errData = await response.json();
+            alert(`Could not process updates: ${JSON.stringify(errData.detail)}`);
+        }
+    } catch(e) {
+        console.error(e);
+    }
+}
+
+async function deleteVendor(id) {
+    const token = localStorage.getItem("token");
+    if (!confirm("Are you absolutely sure you want to delete this vendor resource from the ledger system?")) return;
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/vendors/${id}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        if (response.ok) {
+            alert("Vendor successfully dropped from record ledger.");
+            loadVendors();
+        } else {
+            alert("Deletion parameters rejected by remote server.");
+        }
+    } catch(e) {
+        console.error(e);
+    }
+}
+
+async function searchVendor() {
+    const token = localStorage.getItem("token");
+    const value = document.getElementById("searchInput").value;
+
+    if (value.trim() === "") {
+        loadVendors();
+        return;
+    }
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/vendors/search/?name=${value}`, {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        if (response.ok) {
+            const vendors = await response.json();
+            renderVendors(vendors);
+        }
+    } catch(e) {
+        console.error(e);
+    }
+}
+</script>
+</body></html>
+
+```

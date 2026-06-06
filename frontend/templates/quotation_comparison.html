@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quotation Comparison | VendorBridge India</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#c1ffc5",
+                        "inverse-surface": "#213145",
+                        "background": "#f8f9ff",
+                        "secondary-container": "#dae2fd",
+                        "surface": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#6bff8f",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#565e74",
+                        "surface-variant": "#d3e4fe",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#006229",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-background": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002109",
+                        "on-secondary-container": "#5c647a",
+                        "on-surface": "#0b1c30",
+                        "tertiary-container": "#007e37",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "custom": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-md": ["16px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: saturate(180%) blur(10px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .success-border {
+            border-left: 2px solid #22C55E;
+            border-right: 2px solid #22C55E;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop bg-surface/90 glass-nav h-16 border-b border-outline-variant">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary">VendorBridge</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors" href="main_landing_page.html">Dashboard</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors" href="vendors_page.html">Vendors</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive with a neutral background, styled with clean, high-key studio lighting. The person is wearing a modern navy suit and has a confident, approachable expression, representing the authoritative yet friendly persona of VendorBridge. The image maintains a high-end SaaS aesthetic with sharp focus and professional color grading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPn5IR6kGmCNfObGzxKUqghEt1BfOpZMMgbynv2FrnfGcs4OYPCTmKaabvKs2TPzMd-E-q1CJK3YI4oBaieVpJfddlIncGKb6w3EeAgMM7SxM1QOYU87B8LmQPKMO-Ug0NXE7ki_GMw0akUxPEKUtbrX11XA-g6QkJNS0IZGEkgJUMwI3SlzgyCeafPBFWNliwOtts5vXd4XRm3DAWfxFQuZuE2FAVXLmfdo8AMf8jLsR7wa1FIFrCy01WSNlwoK7Z8Ql8aaYtngs"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 w-[280px] bg-surface border-r border-outline-variant pt-20">
+<div class="flex items-center gap-md px-md mb-xl">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">hub</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md font-bold text-primary">VendorBridge</h2>
+<p class="text-label-md font-label-md text-on-surface-variant">Enterprise Procurement</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="main_landing_page.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="vendors_page.html"><span class="material-symbols-outlined">storefront</span><span class="font-body-md text-body-md">Vendor Management</span></a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="create_RFQ.html"><span class="material-symbols-outlined">request_quote</span><span class="font-body-md text-body-md">RFQ Management</span></a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-lg transition-all duration-200" href="#"><span class="material-symbols-outlined">compare_arrows</span><span class="font-body-md text-body-md">Quotation Management</span></a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="approval_workflow.html"><span class="material-symbols-outlined">rule</span><span class="font-body-md text-body-md">Approval Workflow</span></a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Purchase Orders</span>
+</a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#"><span class="material-symbols-outlined">receipt</span><span class="font-body-md text-body-md">Invoice Management</span></a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#"><span class="material-symbols-outlined">analytics</span><span class="font-body-md text-body-md">Reports & Analytics</span></a>
+</nav>
+<div class="pt-md border-t border-outline-variant mt-md flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md text-body-md">Activity Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-[280px] pt-24 px-margin-desktop pb-xl min-h-screen">
+<!-- Header Actions -->
+<div class="flex justify-between items-end mb-xl">
+<div>
+<nav class="flex items-center gap-sm text-label-md font-label-md text-on-surface-variant mb-xs">
+<a class="hover:text-primary" href="#">Quotations</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface">Compare Quotes</span>
+</nav>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Quotation Comparison</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-xs">RFQ: office furniture procurement q2 - 3 quotations received</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-lg py-sm font-title-md text-title-md text-on-surface-variant hover:bg-surface-container border border-outline-variant rounded-custom transition-all">Cancel</button>
+<button class="px-lg py-sm font-title-md text-title-md bg-primary text-on-primary hover:bg-primary-container rounded-custom transition-all shadow-sm">Export Report</button>
+</div>
+</div>
+<!-- Comparison Matrix Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-custom overflow-hidden shadow-sm">
+<div class="overflow-x-auto hide-scrollbar">
+<table class="w-full border-collapse">
+<thead><tr class="bg-surface-container-low"><th class="p-lg text-left w-64 min-w-[256px] sticky left-0 bg-surface-container-low border-b border-outline-variant z-10"><span class="font-title-md text-title-md text-on-surface-variant">Criteria</span></th><th class="p-md min-w-[300px] border-b border-outline-variant bg-[#22C55E]/20 relative"><div class="flex flex-col items-center py-md"><h3 class="font-title-lg text-title-lg text-on-surface">Infra Supplies (Lowest)</h3></div></th><th class="p-md min-w-[300px] border-b border-outline-variant border-r"><div class="flex flex-col items-center py-md"><h3 class="font-title-lg text-title-lg text-on-surface">TechCore LTD</h3></div></th><th class="p-md min-w-[300px] border-b border-outline-variant"><div class="flex flex-col items-center py-md"><h3 class="font-title-lg text-title-lg text-on-surface">Office Need Co.</h3></div></th></tr></thead>
+<tbody class="divide-y divide-outline-variant"><tr class="hover:bg-surface-container/30 transition-colors"><td class="p-lg font-title-md text-title-md text-on-surface sticky left-0 bg-surface-container-lowest z-10 border-r border-outline-variant">Grand Total</td><td class="p-lg text-center bg-[#22C55E]/20 font-headline-md text-headline-md text-on-surface">185000</td><td class="p-lg text-center border-r font-headline-md text-headline-md text-on-surface">200010</td><td class="p-lg text-center font-headline-md text-headline-md text-on-surface">214800</td></tr><tr class="hover:bg-surface-container/30 transition-colors"><td class="p-lg font-title-md text-title-md text-on-surface sticky left-0 bg-surface-container-lowest z-10 border-r border-outline-variant">GST %</td><td class="p-lg text-center bg-[#22C55E]/20 text-body-lg">18</td><td class="p-lg text-center border-r text-body-lg">18</td><td class="p-lg text-center text-body-lg">18</td></tr><tr class="hover:bg-surface-container/30 transition-colors"><td class="p-lg font-title-md text-title-md text-on-surface sticky left-0 bg-surface-container-lowest z-10 border-r border-outline-variant">Delivery (days)</td><td class="p-lg text-center bg-[#22C55E]/20 text-body-lg">10</td><td class="p-lg text-center border-r text-body-lg">14</td><td class="p-lg text-center text-body-lg">7</td></tr><tr class="hover:bg-surface-container/30 transition-colors"><td class="p-lg font-title-md text-title-md text-on-surface sticky left-0 bg-surface-container-lowest z-10 border-r border-outline-variant">Vendor rating</td><td class="p-lg text-center bg-[#22C55E]/20 text-body-lg">4.5/5</td><td class="p-lg text-center border-r text-body-lg">4.2/5</td><td class="p-lg text-center text-body-lg">3.8/5</td></tr><tr class="hover:bg-surface-container/30 transition-colors"><td class="p-lg font-title-md text-title-md text-on-surface sticky left-0 bg-surface-container-lowest z-10 border-r border-outline-variant">Payment terms</td><td class="p-lg text-center bg-[#22C55E]/20 text-body-lg">30 days</td><td class="p-lg text-center border-r text-body-lg">30 days</td><td class="p-lg text-center text-body-lg">15 days</td></tr><tr><td class="p-lg sticky left-0 bg-surface-container-lowest border-r border-outline-variant"></td><td class="p-lg text-center bg-[#22C55E]/20"><button class="w-full py-md px-md bg-[#22C55E] text-white rounded-custom font-title-md text-title-md hover:brightness-95 transition-all shadow-md active:scale-95">Select &amp; Approve</button></td><td class="p-lg text-center border-r"><button class="w-full py-md px-md border border-outline text-on-surface rounded-custom font-title-md text-title-md hover:bg-surface-container transition-all active:scale-95">Select</button></td><td class="p-lg text-center"><button class="w-full py-md px-md border border-outline text-on-surface rounded-custom font-title-md text-title-md hover:bg-surface-container transition-all active:scale-95">Select</button></td></tr></tbody>
+</table>
+</div>
+</div><p class="mt-md text-body-md text-error font-medium">Green = lowest price, selecting vendor initiates the approval workflow.</p>
+<!-- Secondary Insights (Bento Grid Style) -->
+</main>
+
+
+
+
+<script>
+    console.log("Script loaded successfully");
+    const BACKEND_URL = "http://10.220.60.10:8000";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        const token = localStorage.getItem("token");
+
+        // =========================================================
+        // 1. Session Protection Gatekeeper
+        // =========================================================
+        if (!token) {
+            alert("Access Denied: Please log in first.");
+            window.location.href = "login.html";
+            return;
+        }
+
+        try {
+            const response = await fetch(`${BACKEND_URL}/auth/me`, {
+                method: "GET",
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            if (!response.ok) {
+                console.warn("Invalid session token detected.");
+                localStorage.removeItem("token");
+                window.location.href = "login.html";
+                return;
+            }
+        } catch (error) {
+            console.error("Network Exception:", error);
+            // Non-blocking fallback to enable interface testing offline
+        }
+
+        // =========================================================
+        // 2. Dynamic Currency Formatter
+        // =========================================================
+        const totalCells = document.querySelectorAll("tbody tr:nth-child(1) td");
+        totalCells.forEach((cell, index) => {
+            if (index > 0) { // Skip the header criteria cell
+                const rawValue = parseFloat(cell.innerText.trim());
+                if (!isNaN(rawValue)) {
+                    cell.innerText = `\u20B9${rawValue.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                }
+            }
+        });
+
+        // =========================================================
+        // 3. Selection & Approval Network Hook
+        // =========================================================
+        const actionButtons = document.querySelectorAll("tbody tr:last-child button");
+        const vendorHeaders = document.querySelectorAll("thead th");
+
+        actionButtons.forEach((button, index) => {
+            button.addEventListener("click", async (e) => {
+                e.preventDefault();
+
+                // Dynamically look up the matching vendor name from table header cell text
+                const vendorHeaderCell = vendorHeaders[index + 1];
+                let vendorName = "Unknown Vendor";
+                
+                if (vendorHeaderCell) {
+                    const titleElement = vendorHeaderCell.querySelector("h3");
+                    vendorName = titleElement ? titleElement.innerText.trim() : vendorHeaderCell.innerText.trim();
+                }
+
+                // Get the total text out of the matching column cell
+                const associatedTotalCell = totalCells[index + 1];
+                const rawTotalText = associatedTotalCell ? associatedTotalCell.innerText.replace(/[^0-9.]/g, "") : "0";
+
+                const decisionPayload = {
+                    rfq_reference: "RFQ-2023-0894",
+                    selected_vendor: vendorName,
+                    approved_amount: parseFloat(rawTotalText) || 0,
+                    status: button.innerText.includes("Approve") ? "approved" : "selected"
+                };
+
+                const originalHTML = button.innerHTML;
+                button.disabled = true;
+                button.innerText = "Processing...";
+
+                try {
+                    const postResponse = await fetch(`${BACKEND_URL}/quotations/approve`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify(decisionPayload)
+                    });
+
+                    if (postResponse.ok) {
+                        alert(`Successfully chosen ${vendorName}. Sourcing lifecycle workflow initialized!`);
+                        // REDIRECT TARGET POINTED TO INTERACTIVE APPROVAL WORKFLOW CONTAINER VIEW
+                        window.location.href = "approval_workflow.html";
+                    } else {
+                        const errorData = await postResponse.json();
+                        alert(`Workflow routing blocked: ${errorData.detail || "Verification failure"}`);
+                    }
+                } catch (err) {
+                    console.error("Post exception thrown:", err);
+                    alert("Network Connection Failure: Unable to route request to the backend computer.");
+                } finally {
+                    button.disabled = false;
+                    button.innerHTML = originalHTML;
+                }
+            });
+        });
+
+        // Sticky header logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (header) {
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-md');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+            }
+        });
+    });
+</script>
+
+
+
+</body></html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Submit Quotation | VendorBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#c1ffc5",
+                        "inverse-surface": "#213145",
+                        "background": "#f8f9ff",
+                        "secondary-container": "#dae2fd",
+                        "surface": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#6bff8f",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#565e74",
+                        "surface-variant": "#d3e4fe",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#006229",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-background": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002109",
+                        "on-secondary-container": "#5c647a",
+                        "on-surface": "#0b1c30",
+                        "tertiary-container": "#007e37",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "12px",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-md": ["16px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: saturate(180%) blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline w-[280px] hidden md:flex">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">business_center</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary leading-tight">VendorBridge</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Enterprise Procurement</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="main_landing_page.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="vendors_page.html"><span class="material-symbols-outlined">storefront</span><span class="font-body-md text-body-md">Vendor Management</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="create_RFQ.html"><span class="material-symbols-outlined">request_quote</span><span class="font-body-md text-body-md">RFQ Management</span></a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg active:scale-[0.98] transition-all duration-200 ease-in-out" href="#"><span class="material-symbols-outlined">compare_arrows</span><span class="font-body-md text-body-md">Quotation Management</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="approval_workflow.html"><span class="material-symbols-outlined">fact_check</span><span class="font-body-md text-body-md">Approval Workflow</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Purchase Orders</span>
+</a><a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#"><span class="material-symbols-outlined">description</span><span class="font-body-md text-body-md">Invoice Management</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 ease-in-out" href="#"><span class="material-symbols-outlined">analytics</span><span class="font-body-md text-body-md">Reports & Analytics</span></a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-title-md text-title-md shadow-sm mb-4 hover:opacity-90 transition-opacity">
+                Create New RFQ
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md text-body-md">Activity Logs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 md:ml-[280px] p-margin-mobile md:p-margin-desktop bg-background min-h-screen">
+<header class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div><nav class="flex items-center gap-2 text-on-surface-variant mb-2"><span class="font-label-md text-label-md">Quotations</span><span class="material-symbols-outlined text-sm">chevron_right</span><span class="font-label-md text-label-md text-primary">New Submission</span></nav><h2 class="font-headline-lg text-headline-lg text-on-surface">RFQ: Office Furniture Procurement Q2</h2><p class="font-body-md text-body-md text-on-surface-variant">Deadline: 15 June 2025 • Reference RFQ-2023-0894</p></div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 border border-outline-variant rounded-lg font-title-md text-title-md text-on-surface hover:bg-surface-container-low transition-colors">
+                    Save Draft
+                </button>
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-title-md text-title-md shadow-sm hover:opacity-90 transition-all active:scale-95">
+                    Submit Quote
+                </button>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-gutter">
+<section class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-wrap gap-8 items-start">
+<div class="flex-1 min-w-[200px]">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">Requester</span>
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full" data-alt="A professional corporate portrait of an Indian procurement manager in a bright, modern office setting. He is wearing a tailored grey blazer and a white shirt. The lighting is soft and natural, emphasized with clean, high-end SaaS aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdfGikROLtWVEbkZful9TKlNocSwxKRm4xlcrXIoCsZPENqELnUD211fq0t5SZfkcYC62_5sPEN29-GLscEgUkxU7k6Cg0NXp7f7UaBDoAxlXi9EG3yJPsQ8uuw87eEZG-x-5jwlf-4uB5XC0KQMYTD8gkx39yj33XdhYY1DRWMrpH1Qy4OmZupmQFeZjHlKQPL6n18OL0sINtiICFmeyARW_jsaBPxjYcyYkudYlXDE2t1u5ljvG9hPh3ayoYar2nhmdxtxrNwag"/>
+<span class="font-title-md text-title-md">Arjun Mehta</span>
+</div>
+</div>
+<div class="flex-1 min-w-[150px]">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">RFQ Date</span>
+<span class="font-title-md text-title-md">Oct 12, 2023</span>
+</div>
+<div class="flex-1 min-w-[150px]">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">Response Due</span>
+<span class="font-title-md text-title-md text-error">Oct 28, 2023 (4 Days Left)</span>
+</div>
+<div class="flex-1 min-w-[150px]">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">Ship-to Location</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="font-title-md text-title-md">Mumbai Warehouse (West)</span>
+</div>
+</div>
+<div class="flex-1 min-w-[100px]">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">Currency</span>
+<span class="font-title-md text-title-md">INR (₹)</span>
+</div>
+</section>
+<section class="col-span-12 lg:col-span-9 space-y-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-title-lg text-title-lg">Itemized Quotation</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md">3 Items Requested</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-on-surface-variant"><th class="px-md py-3 font-medium">Item</th><th class="px-md py-3 font-medium text-center">Qty</th><th class="px-md py-3 font-medium">Unit price (₹)</th><th class="px-md py-3 font-medium">Total</th><th class="px-md py-3 font-medium text-right">Delivery (days)</th></tr>
+</thead>
+<tbody class="divide-y divide-outline-variant"><tr class="hover:bg-primary/5 transition-colors group"><td class="px-md py-4"><div class="font-title-md text-title-md">Grade-A Precision Bearings</div><div class="font-body-md text-body-md text-on-surface-variant">SKU: PB-900-X1</div><div class="mt-2 flex items-center gap-2"><span class="text-[10px] uppercase text-outline">tax / GST %</span><input class="w-16 bg-white border border-outline-variant rounded px-2 py-1 text-xs" placeholder="18" type="number"/></div></td><td class="px-md py-4 text-center font-body-lg text-body-lg">500</td><td class="px-md py-4"><input class="w-24 bg-white border border-outline-variant rounded-lg px-3 py-2 text-body-md" placeholder="0.00" type="number"/></td><td class="px-md py-4 font-title-md text-title-md">₹0.00</td><td class="px-md py-4 text-right"><input class="w-20 bg-white border border-outline-variant rounded-lg px-3 py-2 text-body-md text-right" placeholder="7" type="number"/></td></tr><tr class="hover:bg-primary/5 transition-colors group"><td class="px-md py-4"><div class="font-title-md text-title-md">Industrial Sealant Kits</div><div class="font-body-md text-body-md text-on-surface-variant">SKU: SK-44-M</div><div class="mt-2 flex items-center gap-2"><span class="text-[10px] uppercase text-outline">tax / GST %</span><input class="w-16 bg-white border border-outline-variant rounded px-2 py-1 text-xs" placeholder="18" type="number"/></div></td><td class="px-md py-4 text-center font-body-lg text-body-lg">50</td><td class="px-md py-4"><input class="w-24 bg-white border border-outline-variant rounded-lg px-3 py-2 text-body-md" placeholder="0.00" type="number"/></td><td class="px-md py-4 font-title-md text-title-md">₹0.00</td><td class="px-md py-4 text-right"><input class="w-20 bg-white border border-outline-variant rounded-lg px-3 py-2 text-body-md text-right" placeholder="7" type="number"/></td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md"><h4 class="font-title-md text-title-md mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">gavel</span>Note / terms</h4><textarea class="w-full h-32 bg-surface-container-low border border-outline-variant rounded-lg p-3 text-body-md focus:bg-white focus:border-primary transition-all outline-none resize-none" placeholder="Payment terms: 20 days net..."></textarea></div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col">
+<h4 class="font-title-md text-title-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">attachment</span>
+                            Supporting Documents
+                        </h4>
+<div class="flex-1 border-2 border-dashed border-outline-variant rounded-lg flex flex-col items-center justify-center p-6 bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant mb-2">upload_file</span>
+<span class="font-title-md text-title-md">Add Attachment</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-1">PDF, XLSX, Invoice Drafts up to 10MB</span>
+</div>
+</div>
+</div>
+</section>
+<aside class="col-span-12 lg:col-span-3 space-y-gutter">
+<div class="bg-primary text-on-primary rounded-xl p-6 shadow-lg shadow-primary/20"><h3 class="font-label-md text-label-md uppercase tracking-wider opacity-80 mb-4">Quotation Summary</h3><div class="space-y-3 mb-6"><div class="flex justify-between font-body-md text-body-md"><span class="opacity-80">Subtotal</span><span>₹0.00</span></div><div class="flex justify-between font-body-md text-body-md"><span class="opacity-80">GST (18%)</span><span>₹0.00</span></div></div><div class="border-t border-white/20 pt-4"><div class="flex justify-between items-baseline"><span class="font-label-md uppercase opacity-80">Grand Total</span><div class="flex items-baseline gap-1"><span class="text-xl font-bold">₹</span><span class="text-4xl font-bold">0.00</span></div></div></div></div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<h4 class="font-title-md text-title-md mb-4">Logistics Details</h4>
+<div class="space-y-4">
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Lead Time (Days)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">schedule</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white border border-outline-variant rounded-lg font-body-md outline-none focus:border-primary transition-all" placeholder="14" type="number"/>
+</div>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Valid Until</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">event_available</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white border border-outline-variant rounded-lg font-body-md outline-none focus:border-primary transition-all" type="date"/>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<h4 class="font-title-md text-title-md mb-4">Integrity Check</h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">All required fields mapped</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">GSTIN & Vendor license verified</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline">pending</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Price entries pending...</span>
+</li>
+</ul>
+</div>
+</aside>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant flex justify-end gap-4"><button class="px-8 py-3 border border-outline-variant rounded-lg font-title-md text-title-md text-on-surface hover:bg-surface-container-low transition-colors">Save Draft</button><button class="px-8 py-3 bg-primary text-on-primary rounded-lg font-title-md text-title-md shadow-lg hover:opacity-90 transition-all active:scale-95">Submit Quotation</button></div></main>
+<nav class="md:hidden fixed bottom-0 w-full bg-surface border-t border-outline-variant flex justify-around items-center py-2 px-margin-mobile z-50 glass-nav">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="main_landing_page.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">compare_arrows</span>
+<span class="text-[10px] font-medium">Quotes</span>
+</a>
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center -translate-y-4 shadow-lg text-white">
+<span class="material-symbols-outlined">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px] font-medium">Alerts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+
+<script>
+    const BACKEND_URL = "http://10.220.60.10:8000";
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const token = localStorage.getItem("token");
+
+        // 1. Session Protection Interceptor
+        if (!token) {
+            alert("Access Denied: Please log in first.");
+            window.location.href = "login.html"; 
+            return;
+        }
+
+        try {
+            const authResponse = await fetch(`${BACKEND_URL}/auth/me`, {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            if (!authResponse.ok) {
+                console.warn("Invalid session token context.");
+                localStorage.removeItem("token");
+                window.location.href = "login.html"; 
+                return;
+            }
+            const userData = await authResponse.json();
+            console.log("Authenticated User Session Active:", userData);
+        } catch (error) {
+            console.error("Network communication exception:", error);
+        }
+
+        // --- DOM Elements ---
+        const tableRows = document.querySelectorAll('table tbody tr');
+        const subtotalDisplay = document.querySelector('aside div div:nth-child(1) span:last-child');
+        const gstDisplay = document.querySelector('aside div div:nth-child(2) span:last-child');
+        const grandTotalDisplay = document.querySelector('span.text-4xl');
+        const integrityList = document.querySelector('aside div:last-child ul');
+        
+        // --- Localized Formatting Instantiation ---
+        const currencyFormatter = new Intl.NumberFormat('en-IN', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+        // --- Calculation Engine ---
+        function calculateQuotationSummary() {
+            let runningSubtotal = 0;
+            let runningGstTotal = 0;
+            let missingPricesExist = false;
+
+            tableRows.forEach(row => {
+                const qtyElement = row.querySelector('td:nth-child(2)');
+                const priceInput = row.querySelector('td:nth-child(3) input');
+                const taxInput = row.querySelector('td:nth-child(1) input');
+                const totalCell = row.querySelector('td:nth-child(4)');
+
+                const qty = parseFloat(qtyElement ? qtyElement.innerText : 0) || 0;
+                const unitPrice = parseFloat(priceInput ? priceInput.value : 0) || 0;
+                
+                let gstRate = 18;
+                if (taxInput) {
+                    gstRate = parseFloat(taxInput.value) || parseFloat(taxInput.placeholder) || 18;
+                }
+
+                if (unitPrice <= 0) {
+                    missingPricesExist = true;
+                }
+
+                const itemRowSubtotal = qty * unitPrice;
+                const itemRowGst = itemRowSubtotal * (gstRate / 100);
+
+                runningSubtotal += itemRowSubtotal;
+                runningGstTotal += itemRowGst;
+
+                if (totalCell) {
+                    totalCell.innerText = `₹${currencyFormatter.format(itemRowSubtotal)}`;
+                }
+            });
+
+            const computedGrandTotal = runningSubtotal + runningGstTotal;
+
+            if (subtotalDisplay) subtotalDisplay.innerText = `₹${currencyFormatter.format(runningSubtotal)}`;
+            if (gstDisplay) gstDisplay.innerText = `₹${currencyFormatter.format(runningGstTotal)}`;
+            if (grandTotalDisplay) grandTotalDisplay.innerText = currencyFormatter.format(computedGrandTotal);
+
+            updateIntegrityStatusUI(missingPricesExist);
+        }
+
+        // --- Status Side-Widget Panel Modification ---
+        function updateIntegrityStatusUI(isPending) {
+            if (!integrityList) return;
+            
+            const listItems = integrityList.querySelectorAll('li');
+            const targetStatusItem = listItems[listItems.length - 1]; 
+            
+            if (!targetStatusItem) return;
+
+            if (isPending) {
+                targetStatusItem.innerHTML = `
+                    <span class="material-symbols-outlined text-outline">pending</span>
+                    <span class="font-body-md text-body-md text-on-surface-variant">Price entries pending...</span>
+                `;
+            } else {
+                targetStatusItem.innerHTML = `
+                    <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    <span class="font-body-md text-body-md text-tertiary font-medium">All item pricing verified</span>
+                `;
+            }
+        }
+
+        // --- Focus Highlighting & Entry Stream Bindings ---
+        tableRows.forEach(row => {
+            const rowInputs = row.querySelectorAll('input[type="number"]');
+            rowInputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    row.classList.add('bg-primary/5');
+                });
+                
+                input.addEventListener('blur', () => {
+                    row.classList.remove('bg-primary/5');
+                });
+
+                input.addEventListener('input', calculateQuotationSummary);
+            });
+        });
+
+        // --- Form Submission Interception & Field Validation ---
+        function processQuotationSubmission(event) {
+            let isFormValid = true;
+
+            tableRows.forEach(row => {
+                const priceInput = row.querySelector('td:nth-child(3) input');
+                const parsedValue = parseFloat(priceInput ? priceInput.value : 0);
+
+                if (!priceInput || !priceInput.value || isNaN(parsedValue) || parsedValue <= 0) {
+                    priceInput.classList.add('border-error', 'bg-error-container/20');
+                    isFormValid = false;
+                } else {
+                    priceInput.classList.remove('border-error', 'bg-error-container/20');
+                }
+            });
+
+            if (!isFormValid) {
+                event.preventDefault();
+                alert('Submission Halted: Please ensure valid non-zero unit pricing specifications have been assigned to all requested row line items.');
+            } else {
+                // REDIRECT TARGET ASSIGNED HERE FOR HACKATHON WORKFLOW FLOW PIPELINE
+                window.location.href = "quotation_comparison.html";
+            }
+        }
+
+        document.querySelectorAll('button').forEach(btn => {
+            const clearText = btn.innerText.trim().toLowerCase();
+            if (clearText === 'submit quote' || clearText === 'submit quotation') {
+                btn.addEventListener('click', processQuotationSubmission);
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const sidebarElement = document.querySelector('aside');
+            if (sidebarElement) {
+                if (window.scrollY > 20) {
+                    sidebarElement.classList.add('shadow-md');
+                } else {
+                    sidebarElement.classList.remove('shadow-md');
+                }
+            }
+        });
+    });
+</script>
+</body></html>

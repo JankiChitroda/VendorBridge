@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Purchase Order & Invoice Detail | VendorBridge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#c1ffc5",
+                        "inverse-surface": "#213145",
+                        "background": "#f8f9ff",
+                        "secondary-container": "#dae2fd",
+                        "surface": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#6bff8f",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#565e74",
+                        "surface-variant": "#d3e4fe",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#006229",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-background": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002109",
+                        "on-secondary-container": "#5c647a",
+                        "on-surface": "#0b1c30",
+                        "tertiary-container": "#007e37",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "12px",
+                        "lg": "12px",
+                        "xl": "16px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav { backdrop-filter: saturate(180%) blur(10px); }
+        .material-symbols-outlined { vertical-align: middle; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-md z-40 bg-surface border-r border-outline-variant w-[280px]">
+    <div class="flex items-center gap-sm mb-xl px-sm">
+        <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-primary-container">receipt_long</span>
+        </div>
+        <div>
+            <h1 class="font-headline-md text-headline-md font-bold text-primary">VendorBridge</h1>
+            <p class="font-label-md text-label-md text-on-surface-variant opacity-70">Enterprise Procurement</p>
+        </div>
+    </div>
+    
+    <nav class="flex-1 space-y-1 overflow-y-auto">
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="main_landing_page.html">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="font-body-md">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="vendors_page.html">
+            <span class="material-symbols-outlined">storefront</span>
+            <span class="font-body-md">Vendor Management</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="create_RFQ.html">
+            <span class="material-symbols-outlined">request_quote</span>
+            <span class="font-body-md">RFQ Management</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="RFQ_quotation_submit.html">
+            <span class="material-symbols-outlined">compare_arrows</span>
+            <span class="font-body-md">Quotation Management</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="approval_workflow.html">
+            <span class="material-symbols-outlined">rule</span>
+            <span class="font-body-md">Approval Workflow</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-lg transition-all duration-200" href="#">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+            <span class="font-body-md font-semibold">Purchase Orders</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+            <span class="material-symbols-outlined">description</span>
+            <span class="font-body-md">Invoice Management</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+            <span class="material-symbols-outlined">analytics</span>
+            <span class="font-body-md">Reports & Analytics</span>
+        </a>
+    </nav>
+
+    <div class="mt-auto pt-lg border-t border-outline-variant space-y-1">
+        <!-- CORRECTED LINK ROUTING ACTION POINT FOR ACTIVITY LOGS ATTACHMENT HUB -->
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="activity_logs.html">
+            <span class="material-symbols-outlined">history</span>
+            <span class="font-body-md">Activity Logs</span>
+        </a>
+        <a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="#">
+            <span class="material-symbols-outlined">settings</span>
+            <span class="font-body-md">Settings</span>
+        </a>
+    </div>
+</aside>
+
+<!-- Main Content Shell -->
+<main class="ml-[280px] min-h-screen flex flex-col">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 right-0 left-[280px] z-50 glass-nav bg-surface/90 border-b border-outline-variant flex justify-between items-center px-margin-desktop h-16">
+        <div class="flex items-center gap-sm">
+            <span class="font-headline-md text-title-lg font-bold text-on-surface">Documents Processing Hub</span>
+        </div>
+        <div class="flex items-center gap-md">
+            <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+                <img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFkDd307YhU_gdDXG7P7b6l-Q-BVMumUCFZsTJxJmI5uuvjtNeBGaVF-CRMTh2e28cw61nmWDszBF8LT-PUoPVx5HoSb22EfDxSLQu-DisbeMgjNHVz4oDPVNtMXrQScCKV3KptB42tpfPwsfbUFJiE_LvV3c7waRUOGLEptfu27uZRgYJpIvYvkOSHQ3ktuLs_6piuIWX233WIMmPrzufLQrI9uQihVRbx0IlP3tpnaAE1qFkTYTS4iplvwA_AFZI7d18axi34SE"/>
+            </div>
+        </div>
+    </header>
+
+    <!-- Document Processing Workspace Area -->
+    <div class="mt-16 p-margin-desktop flex-1 space-y-gutter">
+        <div class="flex justify-between items-center mb-md">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Purchase Order & Invoice Generation</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Convert approved quotation parameters into authorized corporate procurement files.</p>
+            </div>
+            <div class="flex gap-sm">
+                <button id="printDocBtn" class="px-md py-sm border border-outline-variant text-on-surface-variant rounded-lg flex items-center gap-sm hover:bg-surface-container transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">print</span> Print Invoice
+                </button>
+                <button id="downloadPdfBtn" class="px-md py-sm bg-primary text-on-primary rounded-lg flex items-center gap-sm shadow-sm hover:bg-blue-700 transition-all">
+                    <span class="material-symbols-outlined text-[20px]">download</span> Download PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Order Execution Summary Layout Panel Grid -->
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+            <!-- Left Side: Order Details Specifications Form Summary -->
+            <div class="xl:col-span-2 space-y-gutter">
+                <div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant space-y-md">
+                    <h3 class="font-title-lg text-title-lg border-b border-outline-variant pb-xs text-primary">Official Purchase Order</h3>
+                    <div class="grid grid-cols-2 gap-md pt-sm">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Auto-Generated PO Number</p>
+                            <p class="text-body-lg font-bold text-on-background mt-1">PO-2026-IND-0894</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Assigned Fulfillment Supplier</p>
+                            <p class="text-body-lg font-medium text-on-background mt-1">Infra Supplies PVT LTD</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Itemization Manifest Table -->
+                <div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+                    <div class="p-lg border-b border-outline-variant">
+                        <h4 class="font-title-lg text-title-lg">Procured Assets Manifest</h4>
+                    </div>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-surface-container-low border-b border-outline-variant font-label-md text-on-surface-variant">
+                                <th class="p-md">Line Item Nomenclature</th>
+                                <th class="p-md text-center">Fulfillment Qty</th>
+                                <th class="p-md text-right">Unit Rate</th>
+                                <th class="p-md text-right">Net Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline-variant text-body-md">
+                            <tr>
+                                <td class="p-md font-medium">Grade-A Precision Bearings</td>
+                                <td class="p-md text-center">500</td>
+                                <td class="p-md text-right">₹314.24</td>
+                                <td class="p-md text-right">₹1,57,120.00</td>
+                            </tr>
+                            <tr>
+                                <td class="p-md font-medium">Industrial Sealant Kits</td>
+                                <td class="p-md text-center">50</td>
+                                <td class="p-md text-right">₹565.60</td>
+                                <td class="p-md text-right">₹28,280.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Side: Tax Calculation Ledger Aggregates Card -->
+            <div class="space-y-gutter">
+                <div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant space-y-md">
+                    <h3 class="font-title-lg text-title-lg border-b border-outline-variant pb-xs">Financial Calculations</h3>
+                    <div class="space-y-sm pt-sm">
+                        <div class="flex justify-between text-body-lg text-on-surface-variant">
+                            <span>Subtotal Net Asset Base:</span>
+                            <span class="font-medium">₹1,85,400.00</span>
+                        </div>
+                        <div class="flex justify-between text-body-lg text-on-surface-variant">
+                            <span>Central GST (9%):</span>
+                            <span class="font-medium">₹16,686.00</span>
+                        </div>
+                        <div class="flex justify-between text-body-lg text-on-surface-variant">
+                            <span>State GST (9%):</span>
+                            <span class="font-medium">₹16,686.00</span>
+                        </div>
+                        <div class="border-t border-outline-variant pt-sm flex justify-between items-baseline">
+                            <span class="font-bold text-on-surface">Invoice Grand Total:</span>
+                            <span class="text-2xl font-black text-primary">₹2,18,772.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automated Operational Workflow Communications Trigger Button -->
+                <button id="dispatchInvoiceEmailBtn" class="w-full py-md bg-primary text-on-primary font-semibold rounded-lg flex items-center justify-center gap-sm shadow-md hover:bg-blue-700 transition-all active:scale-[0.99]">
+                    <span class="material-symbols-outlined">mail</span> Send Invoice via Email
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const BACKEND_URL = "http://10.220.60.10:8000";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        const token = localStorage.getItem("token");
+
+        // Enforce Multi-Device Authentication Session Locking Guardrails
+        if (!token) {
+            alert("Access Denied: Please log in first.");
+            window.location.href = "login.html";
+            return;
+        }
+
+        try {
+            const authResponse = await fetch(`${BACKEND_URL}/auth/me`, {
+                method: "GET",
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            if (!authResponse.ok) {
+                localStorage.removeItem("token");
+                window.location.href = "login.html";
+                return;
+            }
+        } catch (error) {
+            console.error("Network synchronization context validation failed:", error);
+        }
+
+        // --- Simulated Action Operations Handlers Hooks ---
+        const emailBtn = document.getElementById("dispatchInvoiceEmailBtn");
+        const downloadBtn = document.getElementById("downloadPdfBtn");
+        const printBtn = document.getElementById("printDocBtn");
+
+        if (emailBtn) {
+            emailBtn.addEventListener("click", () => {
+                alert("Processing Background Transmission Task... Invoice document dispatch triggered safely via email pipeline!");
+            });
+        }
+
+        if (downloadBtn) {
+            downloadBtn.addEventListener("click", () => {
+                alert("PDF binary compiler initiated... Your document downpour download has started!");
+            });
+        }
+
+        if (printBtn) {
+            printBtn.addEventListener("click", () => {
+                window.print();
+            });
+        }
+    });
+</script>
+</body>
+</html>

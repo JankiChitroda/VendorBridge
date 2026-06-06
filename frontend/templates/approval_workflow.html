@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Approval Workflow | VendorBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#c1ffc5",
+                        "inverse-surface": "#213145",
+                        "background": "#f8f9ff",
+                        "secondary-container": "#dae2fd",
+                        "surface": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#6bff8f",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#565e74",
+                        "surface-variant": "#d3e4fe",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#006229",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-background": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002109",
+                        "on-secondary-container": "#5c647a",
+                        "on-surface": "#0b1c30",
+                        "tertiary-container": "#007e37",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "12px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-md": ["16px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: saturate(180%) blur(10px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-active::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+            70% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop bg-surface/90 glass-nav border-b border-outline-variant h-16">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary">VendorBridge</span>
+<nav class="hidden md:flex gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-lg text-body-lg" href="main_landing_page.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-lg text-body-lg" href="vendors_page.html">Vendors</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-lg text-body-lg" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male procurement officer in a light grey business suit. He is smiling warmly against a soft-focus office background with clean, modern architectural lines. The lighting is bright and professional, following a light-mode SaaS aesthetic with cool blue and white tones to match the VendorBridge brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBf4SGRiCCejrKZeOqi-BO3mdELFGxWpJ5aE4yLG-IYmG0iPS8HGDZwDAxcj6K2IOV5XWWoO_dAQEad4EsoHBGSy1y3IyGX7ElMHIJ2EeErz_KxZv9hGIqxLSgJPZiQawY8YYHuZODQUlObda1rcwgrt7Jjct7COTIT4NIs-lm1GoK-jBdjmmLT5HDKTcvHekH91pfjycrQix727FBpf9JLmxAR79nkE0d0b361OHVJQEygJNjbGbK-lbeATgXV4pK1rSWqZVkFxg"/>
+</div>
+</div>
+</header>
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-[280px] bg-surface border-r border-outline-variant p-md flex flex-col z-40 hidden md:flex">
+<div class="flex flex-col gap-xs mb-lg">
+<div class="flex items-center gap-md p-sm">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold">VB</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface leading-tight">VendorBridge</p>
+<p class="text-label-md text-on-surface-variant">Enterprise Procurement</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="main_landing_page.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="vendors_page.html"><span class="material-symbols-outlined">storefront</span><span class="font-body-md text-body-md">Vendor Management</span></a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="create_RFQ.html"><span class="material-symbols-outlined">request_quote</span><span class="font-body-md text-body-md">RFQ Management</span></a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="RFQ_quotation_submit.html"><span class="material-symbols-outlined">compare_arrows</span><span class="font-body-md text-body-md">Quotation Management</span></a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-lg transition-all duration-200" href="#"><span class="material-symbols-outlined">fact_check</span><span class="font-body-md text-body-md">Approval Workflow</span></a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="po_invoice_detail.html">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Purchase Orders</span>
+</a><a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="invoice_m.html"><span class="material-symbols-outlined">receipt</span><span class="font-body-md text-body-md">Invoice Management</span></a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all duration-200" href="reports_analytics.html"><span class="material-symbols-outlined">analytics</span><span class="font-body-md text-body-md">Reports & Analytics</span></a>
+</nav>
+<div class="pt-md border-t border-outline-variant space-y-1">
+<button class="w-full bg-primary text-on-primary py-md px-lg rounded-lg font-title-md text-title-md hover:bg-primary/90 transition-colors active:scale-[0.98] mb-md shadow-sm">
+                Create New RFQ
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg" href="activity_logs.html">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md text-body-md">Activity Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</aside>
+<main class="pt-24 pb-12 px-margin-mobile md:pl-[312px] md:pr-margin-desktop min-h-screen">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+<div><div class="flex items-center gap-sm text-primary mb-xs"><span class="material-symbols-outlined text-[20px]">verified</span><span class="font-label-md text-label-md uppercase tracking-wider">Active Approval Request</span></div><h1 class="font-headline-lg text-headline-lg text-on-surface">Approval Workflow</h1><p class="text-on-surface-variant font-body-md">RFQ: office furniture Q2 - Vendor: Infra Supplies - 185400</p></div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-xl mb-gutter overflow-x-auto">
+<div class="min-w-[800px] flex items-center relative"><div class="absolute top-[20px] left-[5%] right-[5%] h-0.5 bg-outline-variant -z-0"></div><div class="absolute top-[20px] left-[5%] w-[60%] h-0.5 bg-primary -z-0"></div><div class="flex-1 flex flex-col items-center gap-sm relative z-10"><div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center"><span class="material-symbols-outlined">check</span></div><span class="font-label-md text-on-surface">Submitted</span></div><div class="flex-1 flex flex-col items-center gap-sm relative z-10"><div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center"><span class="material-symbols-outlined">check</span></div><span class="font-label-md text-on-surface">L1 Review</span></div><div class="flex-1 flex flex-col items-center gap-sm relative z-10"><div class="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-primary text-primary flex items-center justify-center step-active"><span class="font-title-md">3</span></div><span class="font-label-md text-primary font-bold">L2 approval</span></div><div class="flex-1 flex flex-col items-center gap-sm relative z-10 opacity-40"><div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant text-on-surface-variant flex items-center justify-center"><span class="font-title-md">4</span></div><span class="font-label-md text-on-surface-variant">Generate PO</span></div></div>
+</div>
+<div class="grid grid-cols-1 relative lg:grid-cols-12 gap-gutter"><div class="lg:col-span-6 space-y-gutter"><div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg"><h2 class="text-label-md font-semibold text-on-surface-variant uppercase tracking-wider mb-lg">Approval Chain</h2><div class="space-y-lg"><div class="flex items-center gap-md"><div class="w-10 h-10 rounded-full border-2 border-tertiary flex items-center justify-center text-tertiary"><span class="material-symbols-outlined">check</span></div><div><p class="font-title-md text-on-surface">Rahul Mehta <span class="font-normal text-on-surface-variant">(Procurement head)</span></p><p class="text-label-md text-on-surface-variant italic">Approved on May 20, 10:32 Am</p></div></div><div class="border-t border-outline-variant/30 my-md"></div><div class="flex items-center gap-md"><div class="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center text-primary"><span class="material-symbols-outlined">schedule</span></div><div><p class="font-title-md text-on-surface">Priya Shah <span class="font-normal text-on-surface-variant">(Finance manager)</span></p><p class="text-label-md text-on-surface-variant">Awaiting • Assigned May 21</p></div></div></div></div><div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg"><h2 class="font-title-md text-on-surface mb-md">Approval Remarks</h2><textarea id="approvalCommentBox" class="w-full p-md border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-surface outline-none transition-all resize-none min-h-[120px]" placeholder="Add your comments or conditions..."></textarea></div></div><div class="lg:col-span-6 space-y-gutter"><div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg"><h2 class="text-label-md font-semibold text-on-surface-variant uppercase tracking-wider mb-lg">Quotations Summary</h2><div class="space-y-md"><div class="flex justify-between items-center"><span class="text-on-surface-variant">Vendor:</span><span class="font-title-md text-on-surface">Infra Supplies PVT LTD</span></div><div class="flex justify-between items-center"><span class="text-on-surface-variant">Total:</span><span class="font-title-md text-on-surface">₹1,85,400</span></div><div class="flex justify-between items-center"><span class="text-on-surface-variant">Delivery:</span><span class="font-title-md text-on-surface">10 days</span></div><div class="flex justify-between items-center"><span class="text-on-surface-variant">Rating:</span><span class="font-title-md text-on-surface">4.5/5</span></div></div></div>
+<div id="decisionActionsWrapper" class="flex gap-md"><button class="flex-1 py-md bg-primary text-on-primary rounded-lg font-title-md shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors active:scale-[0.98]">Approve</button><button class="flex-1 py-md border border-outline-variant rounded-lg font-title-md text-on-surface hover:bg-surface-container-low transition-colors active:scale-[0.98]">Reject</button></div></div></div>
+</main>
+
+<script>
+    console.log("Script loaded successfully");
+    const BACKEND_URL = "http://10.220.60.10:8000";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        const token = localStorage.getItem("token");
+
+        // =========================================================
+        // 1. Session Protection Gatekeeper
+        // =========================================================
+        if (!token) {
+            alert("Access Denied: Please log in first.");
+            window.location.href = "login.html";
+            return;
+        }
+
+        try {
+            const response = await fetch(`${BACKEND_URL}/auth/me`, {
+                method: "GET",
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            if (!response.ok) {
+                console.warn("Invalid session token detected.");
+                localStorage.removeItem("token");
+                window.location.href = "login.html";
+                return;
+            }
+        } catch (error) {
+            console.error("Network Exception:", error);
+            // Non-blocking fallback to enable interface testing offline
+        }
+
+        // =========================================================
+        // 2. Action Buttons & Decision Event Hookups
+        // =========================================================
+        const commentBox = document.getElementById("approvalCommentBox");
+        const decisionButtons = document.querySelectorAll("#decisionActionsWrapper button");
+
+        decisionButtons.forEach(button => {
+            button.addEventListener("click", async (e) => {
+                e.preventDefault();
+
+                // Discern choice context based on button text string values
+                const isApproval = button.innerText.trim().toLowerCase() === "approve";
+                const decisionStatus = isApproval ? "approved" : "rejected";
+
+                const workflowPayload = {
+                    rfq_reference: "RFQ-2023-0894",
+                    vendor_name: "Infra Supplies PVT LTD",
+                    total_amount: 185400,
+                    action: decisionStatus,
+                    remarks: commentBox ? commentBox.value.trim() : ""
+                };
+
+                const originalHTML = button.innerHTML;
+                button.disabled = true;
+                button.innerText = "Processing Update...";
+
+                try {
+                    const postResponse = await fetch(`${BACKEND_URL}/workflow/update`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify(workflowPayload)
+                    });
+
+                    if (postResponse.ok) {
+                        alert(`Workflow state successfully updated to: ${decisionStatus.toUpperCase()}`);
+                        window.location.href = "main_landing_page.html";
+                    } else {
+                        const errorData = await postResponse.json();
+                        alert(`Action Blocked: ${errorData.detail || "Workflow exception occurred."}`);
+                    }
+                } catch (err) {
+                    console.error("Post exception thrown:", err);
+                    alert("Network Connection Failure: Unable to route update payload to the backend computer.");
+                } finally {
+                    button.disabled = false;
+                    button.innerHTML = originalHTML;
+                }
+            });
+        });
+
+        // =========================================================
+        // 3. Your Existing UI Animations (100% Preserved)
+        // =========================================================
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-[0.98]');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-[0.98]');
+            });
+        });
+
+        // Preserving atmospheric pulsing logic
+        const timelineSteps = document.querySelectorAll('.step-active');
+        setInterval(() => {
+            timelineSteps.forEach(step => {
+                step.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px rgba(0, 74, 198, 0.3)`;
+            });
+        }, 1500);
+    });
+</script>
+</body></html>

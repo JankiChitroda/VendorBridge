@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="testBackend()">
+    Test Backend
+</button>
+
+<script>
+async function testBackend() {
+
+    const response = await fetch(
+        "http://10.220.60.10:8000/auth/signup",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: "Test User",
+                email: "test123@gmail.com",
+                password: "123456",
+                role: "admin"
+            })
+        }
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+    alert(JSON.stringify(data));
+}
+</script>
+
+</body>
+</html>
